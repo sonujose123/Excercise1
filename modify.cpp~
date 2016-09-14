@@ -1,0 +1,115 @@
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+
+using namespace std;
+/*
+int modifyOne(int *vec);
+int modifyTwo(int *vec);
+int modifyThree(int *vec);
+int modifyFour(int *vec);
+int modifyFive(int *vec);
+int * intdup(int const * src, size_t len);
+*/
+
+const int limit = 100;
+
+int modifyOne(int *vec){
+//we are filling first half with 0s and another with 1s
+
+for(int i = 0; i < limit/2;i++){
+  
+vec[i] = 0;
+
+}
+
+for(int i = limit/2;i < limit; i++){
+
+vec[i] = 1;
+}
+
+}
+
+int modifyTwo(int *vec){
+
+//we are filling first half with 1s and another with 0s
+
+for(int i = 0; i < limit/2;i++){
+  
+vec[i] = 1;
+
+}
+
+for(int i = limit/2;i < limit; i++){
+
+vec[i] = 0;
+}
+
+}
+
+int modifyThree(int *vec){
+//we are filling even position with 1s and odd position with 0s
+for(int i = 0; i < limit; i++)
+
+{
+
+ if(i%2 == 0){
+	 vec[i] = 1;
+}
+ else{
+ 	vec[i] = 0;
+}
+
+}
+}
+
+int modifyFour(int *vec){
+
+//we are filling even position with 0s and odd position with 1s
+for(int i = 0; i < limit; i++)
+
+{
+
+ if(i%2 == 0){
+	 vec[i] = 0;
+}
+ else{
+ 	vec[i] = 1;
+}
+
+}//for
+
+}//modifyFour
+
+int modifyFive(int *vec){
+
+
+//we are dividing 100 elements into a 5group which contains 20 elements, 
+//first 20 , we fill with zeros and next 20 with 1s....
+
+int divCount = 5;
+int blockItems = limit/divCount;
+
+for(int i = 0; i < divCount; i++)
+{
+   for(int j = blockItems * i ;j < blockItems * (i+1) ;j++){
+
+	if(i%2 == 0){
+	 	vec[j] = 0;
+	}
+ 	else{
+ 		vec[j] = 1;
+	}
+
+   }
+}
+
+}
+
+int * intdup(int const * src, size_t len)
+{
+   int * p = (int*) malloc(len * sizeof(int));
+   memcpy(p, src, len * sizeof(int));
+   return p;
+}
+
